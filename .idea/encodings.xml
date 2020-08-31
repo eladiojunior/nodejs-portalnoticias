@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/views/admin/form_incluir_noticia.ejs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/views/home/index.ejs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/noticia/noticia.ejs" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/views/noticia/noticias.ejs" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Portal de notícias</title>
+
+	<!-- JQuery -->
+	<script src="js/jquery-2.2.1.js"></script>
+
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- incluindo css -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<img src="images/logo.png" />
+		</div>
+
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/">HOME</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="container">
+
+	<%if (validacao !=null) {%>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-danger">
+				<strong>Atenção!</strong>
+				<ul>
+					<%for (var i = 0; i < validacao.errors.length; i++) {%>
+					<li><%=validacao.errors[i].msg%></li>
+					<%}%>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<%}%>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="pull-right">
+				<h5>Campos obrigatório estão marcados com (*)</h5>
+			</div>
+		</div>
+	</div>
+
+	<form action="salvar_noticia" method="post">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="tituloNoticia">Título(*)</label>
+					<input class="form-control" type="text" id="tituloNoticia" name="titulo" placeholder="Título da notícia" value="<%=noticia.titulo%>"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="resumoNoticia">Resumo(*)</label>
+					<input class="form-control" type="text" id="resumoNoticia" name="resumo" placeholder="Resumo da notícia" value="<%=noticia.resumo%>"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="conteudoNoticia">Notícia(*)</label>
+					<textarea class="form-control" id="conteudoNoticia" name="conteudo" rows="5" cols="30"><%=noticia.conteudo%></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="autorNoticia">Autor Notícia(*)</label>
+					<input class="form-control" type="text" id="autorNoticia" name="autor" placeholder="Nome do autor da notícia" value="<%=noticia.autor%>"/>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="dataNoticia">Data Notícia(*)</label>
+					<input class="form-control" type="date" id="dataNoticia" name="dataNoticia" placeholder="Data da notícia" value="<%=noticia.dataNoticia%>"/>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="dataInicialNoticia">Vigênicia Inicial(*)</label>
+					<input class="form-control" type="date" id="dataInicialNoticia" name="dataInicial" placeholder="Início da vigência da notícia" value="<%=noticia.dataInicial%>"/>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="dataFinalNoticia">Vigênicia Final</label>
+					<input class="form-control" type="date" id="dataFinalNoticia" name="dataFinal" placeholder="Final da vigência da notícia" value="<%=noticia.dataFinal%>"/>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<input class="btn btn-primary" type="submit" value="Cadastrar">
+				<a class="btn btn-default" href="/noticias" title="Voltar para lista de notícias.">Voltar</a>
+			</div>
+		</div>
+
+	</form>
+
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>
